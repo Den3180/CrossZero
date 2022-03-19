@@ -1,0 +1,83 @@
+﻿<Window x:Class="CrossZero.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CrossZero"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="Black">
+    <Window.Resources>
+        <Style TargetType="{x:Type Grid}">
+            <Setter Property="Background" Value="LightGoldenrodYellow"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="{x:Type Border}">
+            <Setter Property="BorderBrush" Value="LightGoldenrodYellow"/>
+            <Setter Property="BorderThickness" Value="5"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Background" Value="LightGray"/>
+            <EventSetter Event="MouseDown" Handler="Canvas_MouseDown"/>
+            <EventSetter Event="MouseLeftButtonUp" Handler="Canvas_MouseUp"/>
+        </Style>
+        <Style TargetType="{x:Type Canvas}">
+            <Setter Property="Margin" Value="23,30"/>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Start" Content="Start" Grid.Column="0" Margin="10,3" Click="Button_Click"/>
+            <Button Content="Exit" Grid.Column="1" Margin="10,3" Click="Button_Click_1"/>
+        </Grid>
+        <Grid Grid.Row="2" x:Name="MyGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0"  >               
+                <Canvas x:Name="_00"/>
+            </Border>
+            <Border Grid.Column="1" >
+                <Canvas x:Name="_01"/>
+            </Border>
+            <Border Grid.Column="2">
+                <Canvas x:Name="_02"/>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="0">
+                <Canvas x:Name="_10"/>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="1">
+                <Canvas x:Name="_11"/>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="2">
+                <Canvas x:Name="_12"/>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="0">
+                <Canvas x:Name="_20"/>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="1">
+                <Canvas x:Name="_21"/>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="2">
+                <Canvas x:Name="_22"/>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
